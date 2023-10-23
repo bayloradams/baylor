@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baylor Adams</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Basic styling for the entire page */
         body {
             background-color: black;
             color: white;
-            font-family: Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
             margin: 0;
             overflow: hidden; 
             position: relative;
@@ -28,8 +29,9 @@
 
         /* Style for the links */
         a {
-            color: white; /* Color reset to white */
+            color: white;
             text-decoration: none;
+            position: relative;
         }
 
         a:hover {
@@ -40,7 +42,7 @@
         p:first-child {
             font-weight: bold;
             margin-bottom: 1em;
-            position: relative; /* Relative positioning to position the circle */
+            position: relative;
         }
 
         /* Circle animation */
@@ -50,32 +52,54 @@
             border-radius: 50%;
             width: 10px;
             height: 10px;
-            left: calc(50% + 55px); /* Adjusted positioning to drop near the 's' */
-            animation: dropBounce 2s ease-in, driftRight 3s 2s ease-in-out forwards;
+            left: calc(50% + 55px);
+            animation: dropBounce 8s ease-out, driftRight 4s 8s ease-in-out forwards;
         }
 
         @keyframes dropBounce {
-            0%, 20% {
+            0%, 10% {
                 top: -10px;
             }
+            22% {
+                top: 50px;
+            }
+            30% {
+                top: 0;
+            }
+            40% {
+                top: 50px; 
+            }
             50% {
-                top: 25px;
+                top: 0px;
+            }
+            60% {
+                top: 25px; 
+            }
+            70% {
+                top: 90vh;
+            }
+            80% {
+                top: 60vh;
+            }
+            90% {
+                top: 85vh;
             }
             100% {
-                top: 10px;
+                top: 70vh;
             }
         }
 
         @keyframes driftRight {
             0% {
                 left: calc(50% + 55px);
-                top: 10px;
+                top: 70vh;
             }
             100% {
                 left: 100vw;
-                top: 100vh;
+                top: 95vh;
             }
         }
+
     </style>
 </head>
 <body>
