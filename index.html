@@ -20,13 +20,15 @@
         .centered-content {
             text-align: center;
             position: relative;
-            z-index: 2; 
-            padding-top: 15vh; /* Provide some space at the top */
+            z-index: 1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
         /* Style for the links */
         a {
-            color: #8B0000; /* Dark red color */
+            color: white; /* Color reset to white */
             text-decoration: none;
         }
 
@@ -38,37 +40,38 @@
         p:first-child {
             font-weight: bold;
             margin-bottom: 1em;
+            position: relative; /* Relative positioning to place circle near the 's' */
         }
 
-        /* Oscillating wave animation */
-        #wave {
+        /* Circle animation */
+        .circle {
             position: absolute;
-            bottom: 0; /* Position the wave at the bottom */
-            fill: white;
-            opacity: 0.6;
-            z-index: 1;
-            width: 100%;
-            animation: moveWave 10s infinite alternate, floatWave 6s infinite alternate;
+            background-color: white;
+            border-radius: 50%;
+            width: 10px;
+            height: 10px;
+            left: calc(100% - 8px); /* Positioning circle near the 's' in 'Adams' */
+            top: -10px;
+            animation: dropCircle 2s ease-in, slideCircle 2s 2s ease-out forwards;
         }
 
-        @keyframes moveWave {
+        @keyframes dropCircle {
             0% {
-                transform: translateY(0%);
+                top: -10px;
             }
             100% {
-                transform: translateY(-10%);
+                top: 100%;
             }
         }
 
-        @keyframes floatWave {
+        @keyframes slideCircle {
             0% {
-                transform: translateX(0%);
-            }
-            50% {
-                transform: translateX(-5%);
+                left: calc(100% - 8px);
+                top: 100%;
             }
             100% {
-                transform: translateX(5%);
+                left: 100vw;
+                top: calc(100vh - 10px);
             }
         }
 
@@ -76,15 +79,11 @@
 </head>
 <body>
     <div class="centered-content">
-        <p>Baylor Adams</p>
+        <p>Baylor Adam<span class="circle"></span>s</p>
         <p>Working with founders at <a href="https://www.zfellows.com">Z Fellows</a></p>
         <p>Early stage investing</p>
         <p><a href="https://twitter.com/0baylor">Twitter</a></p>
         <p><a href="https://www.linkedin.com/in/bayloradams/">LinkedIn</a></p>
     </div>
-
-    <svg width="100%" height="30%" viewBox="0 0 1600 300" preserveAspectRatio="none" id="wave">
-        <path d="M0,100 C300,200 500,50 800,150 C1100,250 1300,100 1600.00,200 L1600.00,0 L0.00,0 Z"></path>
-    </svg>
 </body>
 </html>
