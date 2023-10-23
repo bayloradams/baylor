@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baylor Adams</title>
+    <style>
+        /* Basic styling for the entire page */
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Centered container for the text */
+        .centered-content {
+            text-align: center;
+        }
+
+        /* Style for the links */
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="centered-content">
+        <p>Baylor Adams</p>
+        <p>Working with founders at Z Fellows</p>
+        <p>Early stage investing</p>
+        <p><a href="https://twitter.com/0baylor">Twitter</a></p>
+        <p><a href="https://www.linkedin.com/in/bayloradams/">LinkedIn</a></p>
+    </div>
+</body>
+</html>
