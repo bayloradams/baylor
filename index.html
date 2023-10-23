@@ -15,11 +15,15 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            overflow: hidden; /* To hide the moving wave overflow */
+            position: relative; /* To position the pseudo-element */
         }
 
         /* Centered container for the text */
         .centered-content {
             text-align: center;
+            z-index: 1; /* Ensure the text is above the wave */
+            position: relative; 
         }
 
         /* Style for the links */
@@ -38,28 +42,27 @@
             margin-bottom: 1em;
         }
 
-        /* Pulsating circle animation */
-        .pulse-circle {
-            margin-top: 2em;
-            width: 15px;
-            height: 15px;
-            background-color: white;
-            border-radius: 50%;
-            animation: pulse 1.5s infinite;
+        /* Wave animation at the bottom */
+        body::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: -50%; /* Start off screen to the left */
+            width: 200%; /* Cover the entire width with extra space for animation */
+            height: 15vh; /* Height of the wave */
+            background: repeating-linear-gradient(
+              45deg,
+              white,
+              white 10px,
+              transparent 10px,
+              transparent 20px
+            );
+            animation: wave 20s linear infinite; /* Slow wave movement */
         }
 
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            50% {
-                transform: scale(1.2);
-                opacity: 0.6;
-            }
+        @keyframes wave {
             100% {
-                transform: scale(1);
-                opacity: 1;
+                transform: translateX(50%); /* Move the wave across */
             }
         }
     </style>
@@ -71,7 +74,6 @@
         <p>Early stage investing</p>
         <p><a href="https://twitter.com/0baylor">Twitter</a></p>
         <p><a href="https://www.linkedin.com/in/bayloradams/">LinkedIn</a></p>
-        <div class="pulse-circle"></div>
     </div>
 </body>
 </html>
