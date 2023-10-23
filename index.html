@@ -32,9 +32,35 @@
             text-decoration: underline;
         }
 
-        /* Added margin to create space between the first and second lines */
+        /* Bold for the first line */
         p:first-child {
+            font-weight: bold;
             margin-bottom: 1em;
+        }
+
+        /* Pulsating circle animation */
+        .pulse-circle {
+            margin-top: 2em;
+            width: 15px;
+            height: 15px;
+            background-color: white;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.6;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
     </style>
 </head>
@@ -45,6 +71,7 @@
         <p>Early stage investing</p>
         <p><a href="https://twitter.com/0baylor">Twitter</a></p>
         <p><a href="https://www.linkedin.com/in/bayloradams/">LinkedIn</a></p>
+        <div class="pulse-circle"></div>
     </div>
 </body>
 </html>
