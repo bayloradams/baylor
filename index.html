@@ -6,76 +6,51 @@
     <title>Baylor Adams</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Basic styling for the entire page */
-        @keyframes bgColor {
-            0% {
-                background: linear-gradient(to top, #000, #06072C 50%);
-            }
-            100% {
-                background: linear-gradient(to top, #000 50%, #06072C);
-            }
-        }
-
         body {
-            animation: bgColor 10s infinite alternate;
+            background-color: #06072C;
             color: white;
             font-family: 'Inter', sans-serif;
             margin: 0;
             overflow: hidden; 
             position: relative;
             height: 100vh;
-            transition: all 0.3s;  /* For subtle hover effects */
         }
-
-        /* Centered container for the text */
         .centered-content {
             text-align: center;
-            position: relative;
+            position: absolute;
             z-index: 1;
             top: 40%;
             left: 50%;
             transform: translate(-50%, -50%);
-            opacity: 0;
-            animation: fadeIn 1.5s forwards 0.5s;
         }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* Style for the links */
         a {
             color: white;
             text-decoration: none;
-            transition: color 0.3s, transform 0.3s;  /* Smooth transition for hover effects */
         }
-
         a:hover {
-            color: #1DA1F2;  /* Twitter light blue */
-            transform: translateY(-2px);  /* Slight move up effect on hover */
+            color: #1DA1F2;
         }
-
-        /* Bold for the first line */
         p:first-child {
             font-weight: bold;
             margin-bottom: 1em;
         }
-
-        /* Logo styling */
         .logo {
             position: absolute;
-            bottom: 5%;  /* Positioning at the bottom with slight padding */
+            bottom: 5%;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 1rem;  /* Reduced font size for the BA logo */
+            font-size: 1rem;
             font-weight: 700;
         }
-
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 <body>
+    <div id="particles-js"></div>
     <div class="centered-content">
         <p>Baylor Adams</p>
         <p>Working with founders at <a href="https://www.zfellows.com">Z Fellows</a></p>
@@ -84,5 +59,23 @@
         <p><a href="https://www.linkedin.com/in/bayloradams/">LinkedIn</a></p>
     </div>
     <div class="logo">BA</div>
-</body>
-</html>
+
+    <!-- particles.js library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: '#ffffff' },
+                shape: {
+                    type: 'circle',
+                    stroke: { width: 0, color: '#000000' },
+                    polygon: { nb_sides: 5 }
+                },
+                opacity: {
+                    value: 0.5,
+                    random: false,
+                    anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false }
+                },
+                size: {
+                    value: 3,
