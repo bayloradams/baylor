@@ -40,7 +40,7 @@
         p:first-child {
             font-weight: bold;
             margin-bottom: 1em;
-            position: relative; /* Relative positioning to place circle near the 's' */
+            position: relative; /* Relative positioning to position the circle */
         }
 
         /* Circle animation */
@@ -50,31 +50,32 @@
             border-radius: 50%;
             width: 10px;
             height: 10px;
-            left: calc(100% - 8px); /* Positioning circle near the 's' in 'Adams' */
-            top: -10px;
-            animation: dropCircle 2s ease-in, slideCircle 2s 2s ease-out forwards;
+            left: calc(50% + 55px); /* Adjusted positioning to drop near the 's' */
+            animation: dropBounce 2s ease-in, driftRight 3s 2s ease-in-out forwards;
         }
 
-        @keyframes dropCircle {
-            0% {
+        @keyframes dropBounce {
+            0%, 20% {
                 top: -10px;
             }
+            50% {
+                top: 25px;
+            }
             100% {
-                top: 100%;
+                top: 10px;
             }
         }
 
-        @keyframes slideCircle {
+        @keyframes driftRight {
             0% {
-                left: calc(100% - 8px);
-                top: 100%;
+                left: calc(50% + 55px);
+                top: 10px;
             }
             100% {
                 left: 100vw;
-                top: calc(100vh - 10px);
+                top: 100vh;
             }
         }
-
     </style>
 </head>
 <body>
