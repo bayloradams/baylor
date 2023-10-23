@@ -5,36 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baylor Adams</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-
     <style>
         body {
-            background-color: #06072C;
+            background: linear-gradient(to top, #000, #06072C);
             color: white;
             font-family: 'Inter', sans-serif;
             margin: 0;
             overflow: hidden; 
             position: relative;
             height: 100vh;
+            transition: all 0.3s;
         }
+
         .centered-content {
             text-align: center;
             position: absolute;
-            z-index: 1;
+            z-index: 2;
             top: 40%;
             left: 50%;
             transform: translate(-50%, -50%);
+            opacity: 0;
+            animation: fadeIn 1.5s forwards 0.5s;
         }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
         a {
             color: white;
             text-decoration: none;
+            transition: color 0.3s, transform 0.3s;
         }
+
         a:hover {
             color: #1DA1F2;
+            transform: translateY(-2px);
         }
+
         p:first-child {
             font-weight: bold;
             margin-bottom: 1em;
         }
+
         .logo {
             position: absolute;
             bottom: 5%;
@@ -55,7 +70,7 @@
     </div>
     <div class="logo">BA</div>
 
-    <div id="particles-js"></div> <!-- Particle.js will fill this element -->
+    <div id="particles-js"></div>
 
     <!-- Load particles.js and configure -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -75,13 +90,6 @@
               },
               "shape": {
                 "type": "circle",
-                "stroke": {
-                  "width": 0,
-                  "color": "#000000"
-                },
-                "polygon": {
-                  "nb_sides": 5
-                }
               },
               "opacity": {
                 "value": 0.5,
@@ -90,12 +98,6 @@
               "size": {
                 "value": 3,
                 "random": true,
-                "anim": {
-                  "enable": false,
-                  "speed": 40,
-                  "size_min": 0.1,
-                  "sync": false
-                }
               },
               "line_linked": {
                 "enable": true,
@@ -106,7 +108,7 @@
               },
               "move": {
                 "enable": true,
-                "speed": 6,
+                "speed": 3,  // Reduced speed by half
                 "direction": "none",
                 "random": false,
                 "straight": false,
@@ -126,31 +128,6 @@
                   "mode": "push"
                 },
                 "resize": true
-              },
-              "modes": {
-                "grab": {
-                  "distance": 140,
-                  "line_linked": {
-                    "opacity": 1
-                  }
-                },
-                "bubble": {
-                  "distance": 400,
-                  "size": 40,
-                  "duration": 2,
-                  "opacity": 8,
-                  "speed": 3
-                },
-                "repulse": {
-                  "distance": 200,
-                  "duration": 0.4
-                },
-                "push": {
-                  "particles_nb": 4
-                },
-                "remove": {
-                  "particles_nb": 2
-                }
               }
             },
             "retina_detect": true
