@@ -11,19 +11,18 @@
             color: white;
             font-family: Arial, sans-serif;
             margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden; /* To hide the moving wave overflow */
-            position: relative; /* To position the pseudo-element */
+            overflow: hidden; 
+            position: relative;
         }
 
         /* Centered container for the text */
         .centered-content {
             text-align: center;
-            z-index: 1; /* Ensure the text is above the wave */
-            position: relative; 
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2; 
         }
 
         /* Style for the links */
@@ -42,29 +41,36 @@
             margin-bottom: 1em;
         }
 
-        /* Wave animation at the bottom */
-        body::before {
-            content: "";
+        /* Oscillating wave animation */
+        #wave {
             position: absolute;
-            bottom: 0;
-            left: -50%; /* Start off screen to the left */
-            width: 200%; /* Cover the entire width with extra space for animation */
-            height: 15vh; /* Height of the wave */
-            background: repeating-linear-gradient(
-              45deg,
-              white,
-              white 10px,
-              transparent 10px,
-              transparent 20px
-            );
-            animation: wave 20s linear infinite; /* Slow wave movement */
+            fill: white;
+            opacity: 0.6;
+            z-index: 1;
+            animation: moveWave 10s infinite alternate, floatWave 6s infinite alternate;
         }
 
-        @keyframes wave {
+        @keyframes moveWave {
+            0% {
+                transform: translateY(0%);
+            }
             100% {
-                transform: translateX(50%); /* Move the wave across */
+                transform: translateY(10%);
             }
         }
+
+        @keyframes floatWave {
+            0% {
+                transform: translateX(0%);
+            }
+            50% {
+                transform: translateX(-10%);
+            }
+            100% {
+                transform: translateX(10%);
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -75,5 +81,9 @@
         <p><a href="https://twitter.com/0baylor">Twitter</a></p>
         <p><a href="https://www.linkedin.com/in/bayloradams/">LinkedIn</a></p>
     </div>
+
+    <svg width="100%" height="60%" viewBox="0 0 1600 300" preserveAspectRatio="none" id="wave">
+        <path d="M0,100 C300,200 500,50 800,150 C1100,250 1300,100 1600.00,200 L1600.00,0 L0.00,0 Z"></path>
+    </svg>
 </body>
 </html>
