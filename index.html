@@ -31,7 +31,6 @@
         a {
             color: white;
             text-decoration: none;
-            position: relative;
         }
 
         a:hover {
@@ -42,73 +41,29 @@
         p:first-child {
             font-weight: bold;
             margin-bottom: 1em;
-            position: relative;
         }
 
-        /* Circle animation */
-        .circle {
+        /* Logo styling */
+        .logo {
             position: absolute;
-            background-color: white;
-            border-radius: 50%;
-            width: 10px;
-            height: 10px;
-            left: calc(50% + 55px);
-            animation: dropBounce 8s ease-out, driftRight 4s 8s ease-in-out forwards;
-        }
-
-        @keyframes dropBounce {
-            0%, 10% {
-                top: -10px;
-            }
-            22% {
-                top: 50px;
-            }
-            30% {
-                top: 0;
-            }
-            40% {
-                top: 50px; 
-            }
-            50% {
-                top: 0px;
-            }
-            60% {
-                top: 25px; 
-            }
-            70% {
-                top: 90vh;
-            }
-            80% {
-                top: 60vh;
-            }
-            90% {
-                top: 85vh;
-            }
-            100% {
-                top: 70vh;
-            }
-        }
-
-        @keyframes driftRight {
-            0% {
-                left: calc(50% + 55px);
-                top: 70vh;
-            }
-            100% {
-                left: 100vw;
-                top: 95vh;
-            }
+            bottom: 5%;  /* Slight padding from the bottom */
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: 5px;  /* Slight space between B and A */
         }
 
     </style>
 </head>
 <body>
     <div class="centered-content">
-        <p>Baylor Adam<span class="circle"></span>s</p>
+        <p>Baylor Adams</p>
         <p>Working with founders at <a href="https://www.zfellows.com">Z Fellows</a></p>
         <p>Early stage investing</p>
         <p><a href="https://twitter.com/0baylor">Twitter</a></p>
         <p><a href="https://www.linkedin.com/in/bayloradams/">LinkedIn</a></p>
     </div>
+    <div class="logo">BA</div>
 </body>
 </html>
